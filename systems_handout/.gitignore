@@ -1,0 +1,22 @@
+# Compiled executables
+sender
+receiver
+*.exe
+
+# Log and stats files generated during runs
+playout_log.json
+relay_stats.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Harness files (DO NOT MODIFY, replaced by graders)
+run.py
+relay.py
+endpoints.py
+common.py
+score.py
+
+# Practice profiles
+profiles/

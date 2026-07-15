@@ -1,6 +1,6 @@
 # Run Log
 
-## Phase 1: Baseline Run
+## Baseline Run
 * **Profile**: A (delay_ms: 40)
 * **Miss %**: 6.53%
 * **Overhead**: 1.02x
