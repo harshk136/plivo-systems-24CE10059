@@ -39,3 +39,11 @@
 * **Overhead**: 1.54x
 * **What you changed**: Fine-tuned the `delay_ms` argument down to its mathematically lowest valid point without breaking the 1.0% limit constraint.
 * **Why**: To submit the absolute lowest possible delay for grading. 50ms (A) and 100ms (B) both exceeded the 1.0% miss limit, making 55ms and 105ms the optimal bounds.
+
+### Experiment 6: Dispatch Timing Optimization (Sub-50ms / Sub-100ms)
+* **Profile**: A and B
+* **delay_ms**: 50 (Profile A) / 100 (Profile B)
+* **Miss %**: 1.00% (Profile A) / 0.80% (Profile B)
+* **Overhead**: 1.54x
+* **What you changed**: Tuned the `receiver.cpp` playout thread to dispatch 1ms early instead of 5ms early. 
+* **Why**: By reducing the early-dispatch buffer, we effectively gave the network 4ms *more* time to deliver late packets before the strict deadline expired. This massive efficiency gain allowed us to shrink the delay limit of A to exactly 50ms, and B to 100ms, hitting the rules precisely.

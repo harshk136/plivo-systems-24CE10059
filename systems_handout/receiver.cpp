@@ -73,11 +73,11 @@ int main(void) {
             double deadline_s = t0 + (delay_ms / 1000.0) + (i * 0.020);
             
             // Convert double seconds since epoch into std::chrono time_point
-            // We wake up 5ms early to ensure the packet traverses localhost UDP
+            // We wake up 1ms early to ensure the packet traverses localhost UDP
             // and is timestamped by the python player BEFORE the strict deadline.
             auto deadline_time = std::chrono::time_point<std::chrono::system_clock>(
                 std::chrono::duration_cast<std::chrono::system_clock::duration>(
-                    std::chrono::duration<double>(deadline_s - 0.005)
+                    std::chrono::duration<double>(deadline_s - 0.001)
                 )
             );
             
